@@ -52,7 +52,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("version 0.2.1");
+        jLabel4.setText("version 0.2.2");
 
         jLabel5.setText("Created by: Josue Emmanuel Medina Garcia");
 
