@@ -166,19 +166,19 @@ public class CasaController implements interCasa{
     }
 
     @Override
-    public int mod_User(Casa c) {
+    public int mod_User(Casa c, String cuenta, String nombre) {
         int nro=0;
         Connection conn= null;
 
         try{
         conn=cn.getConexion();
-        String sql="update cuentas nombre=?, cuenta=?, correo=? contraseña=? where nombre=?";
+        String sql="update cuentas set cuenta=?, correo=?, contraseña=? where cuenta=? and nombre=?";
         PreparedStatement st=conn.prepareStatement(sql);
-        st.setString(1, c.getNombre());
-        st.setString(2, c.getCuenta());
-        st.setString(3, c.getCorreo());
-        st.setString(4, c.getContraseña());
-        st.setString(5, c.getNombre());
+        st.setString(1, c.getCuenta());
+        st.setString(2, c.getCorreo());
+        st.setString(3, c.getContraseña());
+        st.setString(4, cuenta);
+        st.setString(5, nombre);
         //esta consuilta se lleva a memoria
         nro=st.executeUpdate();
 	 //Comenzar a leer fila x fila

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package vista;
-
+import modelo.Casa;
+import controlador.CasaController;
 import vista.*;
 
 /**
@@ -13,12 +14,18 @@ import vista.*;
  */
 public class dialogModificar extends javax.swing.JDialog {
 
-    /**
-     * Creates new form dialogModificar
-     */
+    static String nombre;
+    static String aplicacion;
+    static String correo;
+    static String contraseña;
+    CasaController obj = new CasaController();
     public dialogModificar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        txtContra.setText(contraseña);
+        txtCorreo.setText(correo);
+        txtCuenta.setText(aplicacion);
     }
 
     /**
@@ -36,8 +43,8 @@ public class dialogModificar extends javax.swing.JDialog {
         txtContra = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtCuenta = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,14 +54,15 @@ public class dialogModificar extends javax.swing.JDialog {
 
         jLabel3.setText("Ingresar contraseña");
 
-        jLabel4.setText("MODIFICAR");
-
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("MODIFICAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,16 +83,17 @@ public class dialogModificar extends javax.swing.JDialog {
                             .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(263, 263, 263)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel4))))
+                        .addComponent(btnModificar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jLabel5)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -98,16 +107,24 @@ public class dialogModificar extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addComponent(btnModificar)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        Casa c = new Casa();
+        c.setNombre(nombre);
+        c.setCuenta(txtCuenta.getText());
+        c.setCorreo(txtCorreo.getText());
+        c.setContraseña(txtContra.getText());
+        obj.mod_User(c,aplicacion,nombre);
+        this.setVisible(false);
+        frmListCuentas frm = new frmListCuentas();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,11 +170,11 @@ public class dialogModificar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCuenta;

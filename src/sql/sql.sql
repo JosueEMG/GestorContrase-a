@@ -1,7 +1,7 @@
 create database bdcasa;
 
 create table usuarios(
-    nombre varchar(30),
+    nombre varchar(30) primary key not null,
     contraseña varchar(30)
 )
 
@@ -16,3 +16,8 @@ create table cuentas(
 )
 
 insert into cuentas values('Josue', 'Zoom', 'josue@gmail.com', 'qwer5256');
+
+update cuentas set cuenta='asdasd', correo='asdasd', contraseña='asdasd' where cuenta='Caca' and nombre='Josue';
+
+select * from cuentas;
+select * from usuarios;

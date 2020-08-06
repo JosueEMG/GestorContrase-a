@@ -14,7 +14,7 @@ public interface interCasa {
     List<Casa> getCasa(String nom); 
     List<Usuarios> getUsuarios();
     int add_User(Casa c);
-    int mod_User(Casa c);
+    int mod_User(Casa c, String cuenta, String nombre);
     int del_User(String cuenta);
     int add_Usuario(Usuarios u);
     int del_Usuario(String nom);
