@@ -5,6 +5,7 @@
  */
 package vista;
 
+import vista.*;
 import controlador.CasaController;
 import javax.swing.JOptionPane;
 import modelo.Casa;
@@ -17,7 +18,7 @@ public class dialogAgregar extends javax.swing.JDialog {
 
     static String nombre;
     CasaController obj =new CasaController();
-    public dialogAgregar(java.awt.Dialog parent, boolean modal) {
+    public dialogAgregar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -123,7 +124,7 @@ public class dialogAgregar extends javax.swing.JDialog {
         c.setContraseña(txtContra.getText());
         obj.add_User(c);
         this.setVisible(false);
-        dialogListCuentas fr=new dialogListCuentas(this, true);
+        frmListCuentas fr=new frmListCuentas();
         fr.setVisible(true);    
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error de ingreso, puede que alguno de los campos tenga una longitud no estimada");
@@ -131,7 +132,7 @@ public class dialogAgregar extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        dialogListCuentas fr =new dialogListCuentas(this, true);
+        frmListCuentas fr =new frmListCuentas();
         this.setVisible(false);
         fr.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
@@ -162,11 +163,12 @@ public class dialogAgregar extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(dialogAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                dialogAgregar dialog = new dialogAgregar(new javax.swing.JDialog(), true);
+                dialogAgregar dialog = new dialogAgregar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

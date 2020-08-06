@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistaform;
+package vista;
 import vista.*;
 import modelo.*;
 import controlador.CasaController;
@@ -19,6 +19,7 @@ public class frmLogin extends javax.swing.JFrame {
     CasaController obj=new CasaController();
     public frmLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     @SuppressWarnings("unchecked")

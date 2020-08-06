@@ -5,6 +5,8 @@
  */
 package vista;
 
+import vista.*;
+
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -132,6 +134,7 @@ public class dialogModificar extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(dialogModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

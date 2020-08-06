@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
+import vista.*;
 import controlador.CasaController;
 import javax.swing.JOptionPane;
 import modelo.Usuarios;
@@ -17,7 +18,7 @@ public class dialogNewAccount extends javax.swing.JDialog {
      * Creates new form dialogNewAccount
      */
     
-    public dialogNewAccount(java.awt.Dialog parent, boolean modal) {
+    public dialogNewAccount(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -132,8 +133,8 @@ public class dialogNewAccount extends javax.swing.JDialog {
             obj.add_Usuario(u);
             JOptionPane.showMessageDialog(null,"Ha creado su cuenta satisfactoriamente");
             this.setVisible(false);
-            dialogLogin dg=new dialogLogin(this, true);
-            dg.setVisible(true);
+            frmLogin frm=new frmLogin();
+            frm.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden");
         }    
@@ -144,7 +145,7 @@ public class dialogNewAccount extends javax.swing.JDialog {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.setVisible(false);
-        dialogLogin dg =new dialogLogin(this, true);
+        frmLogin dg =new frmLogin();
         dg.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
@@ -174,11 +175,12 @@ public class dialogNewAccount extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(dialogNewAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                dialogNewAccount dialog = new dialogNewAccount(new javax.swing.JDialog(), true);
+                dialogNewAccount dialog = new dialogNewAccount(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
